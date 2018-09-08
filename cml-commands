@@ -1,0 +1,73 @@
+stephans-MacBook-Air:~ smorris$ cd desktop
+stephans-MacBook-Air:desktop smorris$ cd fullstack
+stephans-MacBook-Air:fullstack smorris$ mkdir server
+stephans-MacBook-Air:fullstack smorris$ cd server
+stephans-MacBook-Air:server smorris$ npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (server)
+version: (1.0.0)
+description:
+entry point: (index.js)
+test command:
+git repository:
+keywords:
+author:
+license: (ISC)
+About to write to /Users/smorris/Desktop/FullStack/server/package.json:
+
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+
+Is this ok? (yes)
+stephans-MacBook-Air:server smorris$ ls
+package.json
+stephans-MacBook-Air:server smorris$ npm install --save express
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN server@1.0.0 No description
+npm WARN server@1.0.0 No repository field.
+
++ express@4.16.3
+added 50 packages in 4.558s
+
+
+   ╭─────────────────────────────────────╮
+   │                                     │
+   │   Update available 5.6.0 → 6.4.1    │
+   │     Run npm i -g npm to update      │
+   │                                     │
+   ╰─────────────────────────────────────╯
+
+stephans-MacBook-Air:server smorris$ cat package.json
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
