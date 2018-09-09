@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
     // '/' = localhost:5000/
 
     res.send({
-        hi: 'there'
+        bye: 'buddy'
     });
 }); //Route handler with express
 
