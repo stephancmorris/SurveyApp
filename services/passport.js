@@ -22,7 +22,8 @@ passport.use(new GoogleStrategy({
         //Config Options
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: '/auth/google/callback'
+        callbackURL: '/auth/google/callback',
+        proxy: true
     }, //2nd Arguement = Callback
     (accessToken, refreshToken, profile, done) => {
         User.findOne({ //MongoDB Query
