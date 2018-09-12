@@ -152,6 +152,127 @@ stephans-MacBook-Air:server smorris$ heroku logs
 
 ---*********** Additional Deployments ---***********---
 
+stephans-MacBook-Air:server smorris$ git statusOn branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes inworking directory)
 
+        modified:   cml-commands
+        modified:   index.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+stephans-MacBook-Air:server smorris$ git add .
+stephans-MacBook-Air:server smorris$ git commit -m "changed greeting"
+[master 18ec308] changed greeting
+ 2 files changed, 86 insertions(+), 2 deletions(-)
+stephans-MacBook-Air:server smorris$ git push heroku master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 2.03 KiB | 2.03 MiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Node.js app detected
+remote:
+remote: -----> Creating runtime environment
+remote:
+remote:        NPM_CONFIG_LOGLEVEL=error
+remote:        NODE_VERBOSE=false
+remote:        NODE_ENV=production
+remote:        NODE_MODULES_CACHE=true
+remote:
+remote: -----> Installing binaries
+remote:        engines.node (package.json):  8.1.1
+remote:        engines.npm (package.json):   5.0.3
+remote:
+remote:        Resolving node version 8.1.1...
+remote:        Downloading and installing node 8.1.1...
+remote:        npm 5.0.3 already installed with node
+remote:
+remote: -----> Restoring cache
+remote:        - node_modules
+remote:
+remote: -----> Building dependencies
+remote:        Installing node modules (package.json + package-lock)
+remote:        up to date in 0.425s
+remote:
+remote: -----> Caching build
+remote:        - node_modules
+remote:
+remote: -----> Pruning devDependencies
+remote:        up to date in 0.434s
+remote:
+remote: -----> Build succeeded!
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 16.9M
+remote: -----> Launching...
+remote:        Released v4
+remote:        https://obscure-peak-69146.herokuapp.com/deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/obscure-peak-69146.git
+   b75fab6..18ec308  master -> master
+stephans-MacBook-Air:server smorris$ heroku open
 
 ---*********** Additional Deployments ---***********---
+
+---*********** Passport Strategy ---***********---
+stephans-MacBook-Air:server smorris$ npm install --save passport passport-google-oauth20
+npm WARN server@1.0.0 No description
+npm WARN server@1.0.0 No repository field.
+
++ passport@0.4.0
++ passport-google-oauth20@1.0.0
+added 7 packages in 3.923s
+
+
+   ╭─────────────────────────────────────╮
+   │                                     │
+   │   Update available 5.6.0 → 6.4.1    │
+   │     Run npm i -g npm to update      │
+   │                                     │
+   ╰─────────────────────────────────────╯
+---*********** Passport Strategy ---***********---
+
+
+---*********** GOOGLE REPLY ---***********---
+stephans-MacBook-Air:server smorris$ node index.js
+ya29.GlsUBspEkEVnPGn47lZGfwrDmI5C82fqMkUrezkiMmcG0dc17kMS0vIB0LxLUTL-zTMb0d6qcGl0s4VCthSs8Vvg6OZCTlF6JkcKb1mH86mAn0UsVdqSkG7kz8Zf
+^C
+stephans-MacBook-Air:server smorris$ node index.js
+access token ya29.GlsUBlLjnsCoIll_fINJ99tmbGPsUv7kczx0rfjFm-GwZGnk0izSwIblnNqbcQAa5aENALKuWAGm5i5iDZl8beHW7j2v-H4RGAPHRfRseqMb78KhqArAQUmkK50X
+refresh token undefined
+profile { id: '114649301607398796097',
+  displayName: 'Stephan Morris',
+  name: { familyName: 'Morris', givenName: 'Stephan' },
+  emails: [ { value: 'scm993@gmail.com', type: 'account' } ],
+  photos:
+   [ { value: 'https://lh5.googleusercontent.com/-_-xkdCuyUtc/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaPCyx0eU6VV1NIpFzUmT6g_cIogsg/mo/photo.jpg?sz=50' } ],
+  gender: 'male',
+  provider: 'google',
+  _raw: '{\n "kind": "plus#person",\n "etag": "\\"jb1Xzanox6i8Zyse4DcYD8sZqy0/RBlORguTTS5o5Py6qC7fPfS6nzo\\"",\n "gender": "male",\n "emails": [\n  {\n   "value": "scm993@gmail.com",\n   "type": "account"\n  }\n ],\n "objectType": "person",\n "id": "114649301607398796097",\n "displayName": "Stephan Morris",\n "name": {\n  "familyName": "Morris",\n  "givenName": "Stephan"\n },\n "url": "https://plus.google.com/114649301607398796097",\n "image": {\n  "url": "https://lh5.googleusercontent.com/-_-xkdCuyUtc/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaPCyx0eU6VV1NIpFzUmT6g_cIogsg/mo/photo.jpg?sz=50",\n  "isDefault": true\n },\n "isPlusUser": true,\n"language": "en",\n "circledByCount": 1,\n "verified": false\n}\n',
+  _json:
+   { kind: 'plus#person',
+     etag: '"jb1Xzanox6i8Zyse4DcYD8sZqy0/RBlORguTTS5o5Py6qC7fPfS6nzo"',
+     gender: 'male',
+     emails: [ [Object] ],
+     objectType: 'person',
+     id: '114649301607398796097',
+     displayName: 'Stephan Morris',
+     name: { familyName: 'Morris', givenName: 'Stephan' },
+     url: 'https://plus.google.com/114649301607398796097',
+     image:
+      { url: 'https://lh5.googleusercontent.com/-_-xkdCuyUtc/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaPCyx0eU6VV1NIpFzUmT6g_cIogsg/mo/photo.jpg?sz=50',
+        isDefault: true },
+     isPlusUser: true,
+     language: 'en',
+     circledByCount: 1,
+     verified: false } }
+---*********** GOOGLE REPLY ---***********---
