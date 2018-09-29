@@ -276,3 +276,33 @@ profile { id: '114649301607398796097',
      circledByCount: 1,
      verified: false } }
 ---*********** GOOGLE REPLY ---***********---
+
+---*********** Server & Client Start ---***********---
+stephans-MacBook-Air:server smorris$ npm install --save concurrentlynpm WARN server@1.0.0 No description
+npm WARN server@1.0.0 No repository field.
+
++ concurrently@4.0.1
+added 57 packages in 12.301s
+stephans-MacBook-Air:server smorris$ npm run dev
+
+> server@1.0.0 dev /Users/smorris/Desktop/survey-App/server
+> concurrently "npm run server" "npm run client"
+
+[1]
+[1] > server@1.0.0 client /Users/smorris/Desktop/survey-App/server
+[1] > npm run start --prefix client
+[1]
+[0]
+[0] > server@1.0.0 server /Users/smorris/Desktop/survey-App/server
+[0] > nodemon index.js
+[0]
+[1]
+[1] > client@0.1.0 start /Users/smorris/Desktop/survey-App/server/client
+[1] > react-scripts start
+[1]
+[0] [nodemon] 1.18.4
+[0] [nodemon] to restart at any time, enter `rs`
+[0] [nodemon] watching: *.*
+[0] [nodemon] starting `node index.js`
+[0] (node:63709) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+---*********** Server & Client Start ---***********---

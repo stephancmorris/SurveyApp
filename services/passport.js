@@ -24,19 +24,16 @@ passport.use(new GoogleStrategy({
         clientSecret: keys.googleClientSecret,
         callbackURL: '/auth/google/callback',
         proxy: true
-    }, //2nd Arguement = Callback
-    (accessToken, refreshToken, profile, done) => {
-        User.findOne({ //MongoDB Query
+    },
+    async (accessToken, refreshToken, profile, done) => {
+        const existingUser = await User.findOne({
             googleId: profile.id
-        }).then((existingUser) => {
-            if (existingUser) {
-                //we already have a record with the profile ID
-                done(null, existingUser);
-            } else {
-                new User({
-                    googleId: profile.id //still need to add to the MongoDB
-                    //.save saves it to the mondo
-                }).save().then(user => done(null, user));
-            }
         })
+        if (existingUser) {
+            return done(null, existingUser);
+        }
+        const user = await new User({
+            googleId: profile.id
+        }).save()
+        done(null, user);
     }));
