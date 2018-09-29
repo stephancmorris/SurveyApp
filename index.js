@@ -30,17 +30,12 @@ require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
-	// Express will serve up production assets
-	//Example: main.js & main.css
-	app.use(express.static('client/build'));
-
-	//Express will produce the index.html file
-	//when it doesn't recognize the route
-	const path = require('path');
+	const path = require('path'); //We need path earlier for this!
+	app.use(express.static(path.join(__dirname, '/client/build')));
+	//No more changes from here on now
 	app.get('*', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
-	// Catch all case
 }
 
 // app.get('/', (req, res) => {
